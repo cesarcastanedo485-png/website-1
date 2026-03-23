@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: #F3E8EE;
+    --foreground: #1A1B2E;
+    --primary: #D94811;
+    --primary-foreground: #FFFFFF;
+  }
+  body {
+    @apply bg-nwi-pink text-nwi-navy antialiased;
+  }
+}
