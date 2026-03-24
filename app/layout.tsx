@@ -26,11 +26,18 @@ export const metadata: Metadata = {
     description: "Sportainment at Oil City Stadium in Whiting, Indiana.",
     type: "website",
     url: metadataBase ? new URL("/", metadataBase).toString() : undefined,
-    images: ["/og-image.png"],
+    images: [
+      {
+        url: "/og-social-1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "NWI Fun Ball - Region Razzles logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"],
+    images: ["/og-social-1200x630.png"],
   },
   facebook: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID
     ? { appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID }
