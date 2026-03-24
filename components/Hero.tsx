@@ -6,24 +6,50 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] overflow-hidden"
+      className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] overflow-visible"
       aria-label="Hero section"
     >
       {/* Stadium background with overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/stadium-hero.jpg"
-          alt="Baseball field at night lit by stadium lights - aerial view of diamond and outfield"
+          src="/stadium-hero.png"
+          alt="Oil City Stadium baseball field - aerial view of diamond and outfield on a sunny day"
           fill
           className="object-cover"
           priority
           sizes="100vw"
           unoptimized
         />
+        {/* Mascot overlay - bottom left, foot touches orange ticker below */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"
+          className="absolute inset-0 z-10 flex items-end justify-start pointer-events-none translate-y-8 sm:translate-y-10"
           aria-hidden="true"
-        />
+        >
+          <div className="h-[85%] w-auto min-w-[200px] max-w-[min(380px,50vw)] flex items-end">
+            <Image
+              src="/mascot.png"
+              alt=""
+              width={380}
+              height={475}
+              className="scale-x-[-1] object-contain object-left-bottom drop-shadow-2xl w-full h-full"
+            />
+          </div>
+        </div>
+        {/* Region Razzles logo - bottom right, balances the mascot */}
+        <div
+          className="absolute inset-0 z-10 flex items-end justify-end pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="h-[85%] w-auto min-w-[140px] max-w-[min(320px,42vw)] flex items-end">
+            <Image
+              src="/region-razzles-logo.png"
+              alt="Region Razzles"
+              width={320}
+              height={320}
+              className="object-contain object-right-bottom drop-shadow-2xl w-full h-full"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Content */}

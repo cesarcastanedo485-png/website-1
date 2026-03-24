@@ -11,11 +11,13 @@ const TICKET_CARDS = [
     content: (
       <>
         <p className="text-nwi-navy/90 text-sm sm:text-base">
-          <strong>Press conference full details.</strong> Tickets go on sale April
-          1, &apos;26.
+          <strong>Press conference details:</strong> March 29th, noon, Oil City Stadium.
         </p>
         <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-medium">
-          Venue: NWI Fun Ball, Where Everyone Wins
+          Event dates: June 6–11 & 29 • July 9 & 30 • August 13 & 29
+        </p>
+        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2">
+          Tickets go on sale April 1, &apos;26.
         </p>
         <div
           className="mt-4 rounded-lg bg-nwi-navy p-4 grid grid-cols-5 gap-2"
@@ -44,10 +46,10 @@ const TICKET_CARDS = [
         <p className="text-nwi-navy/90 text-sm sm:text-base mt-2">
           <strong>Phone:</strong>{" "}
           <a
-            href="tel:+1234567890"
+            href="tel:+12199214584"
             className="text-nwi-orange hover:underline focus:outline-none focus:ring-2 focus:ring-nwi-orange rounded"
           >
-            (123) 456-7890
+            219-921-4584
           </a>
         </p>
         <p className="text-nwi-navy/90 text-sm sm:text-base mt-1">

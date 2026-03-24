@@ -6,6 +6,19 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+}
+
 @layer base {
   :root {
     --background: #F3E8EE;
