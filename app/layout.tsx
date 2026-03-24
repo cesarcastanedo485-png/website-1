@@ -4,10 +4,19 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+function getMetadataBase(): URL | undefined {
+  const url = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!url) return undefined;
+  const withProtocol = url.startsWith("http") ? url : `https://${url}`;
+  try {
+    return new URL(withProtocol);
+  } catch {
+    return undefined;
+  }
+}
+
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+  metadataBase: getMetadataBase(),
   title: "NWI Fun Ball | Sportainment in Whiting, Indiana",
   description:
     "7 innings of non-stop fun! Baseball, softball, singing, dodgeball, dancing, soccer and FREE popcorn. Thursday nights at Oil City Stadium—June, July, August.",
