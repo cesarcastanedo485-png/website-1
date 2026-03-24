@@ -3,7 +3,10 @@ import QRCode from "qrcode";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.RESEND_FROM_EMAIL || "noreply@example.com";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
+const siteUrl =
+  process.env.SITE_URL ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "http://localhost:3001";
 
 export async function sendTicketEmail({
   to,

@@ -25,7 +25,10 @@ export async function POST(request: NextRequest) {
     }
 
     const totalCents = product.priceCents * quantity;
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
+    const baseUrl =
+      process.env.SITE_URL ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "http://localhost:3001";
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
