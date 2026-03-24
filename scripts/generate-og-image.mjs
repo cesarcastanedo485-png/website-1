@@ -4,7 +4,8 @@ const width = 1200;
 const height = 630;
 
 const inputLogo = "public/og-image.png";
-const outputImage = "public/og-social-1200x630.png";
+const outputPng = "public/og-social-1200x630.png";
+const outputJpg = "public/og-social-1200x630.jpg";
 
 const background = {
   create: {
@@ -20,14 +21,21 @@ const logoBuffer = await sharp(inputLogo)
   .png()
   .toBuffer();
 
-await sharp(background)
-  .composite([
-    {
-      input: logoBuffer,
-      gravity: "center",
-    },
-  ])
-  .png({ compressionLevel: 9 })
-  .toFile(outputImage);
+const canvas = sharp(background).composite([
+  {
+    input: logoBuffer,
+    gravity: "center",
+  },
+]);
 
-console.log(`Generated ${outputImage}`);
+await canvas
+  .clone()
+  .png({ compressionLevel: 9 })
+  .toFile(outputPng);
+
+await canvas
+  .jpeg({ quality: 90, mozjpeg: true })
+  .toFile(outputJpg);
+
+console.log(`Generated ${outputPng}`);
+console.log(`Generated ${outputJpg}`);

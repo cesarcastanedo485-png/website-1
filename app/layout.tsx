@@ -28,7 +28,17 @@ export const metadata: Metadata = {
     url: metadataBase ? new URL("/", metadataBase).toString() : undefined,
     images: [
       {
+        url: "/og-social-1200x630.jpg",
+        secureUrl: "/og-social-1200x630.jpg",
+        type: "image/jpeg",
+        width: 1200,
+        height: 630,
+        alt: "NWI Fun Ball - Region Razzles logo",
+      },
+      {
         url: "/og-social-1200x630.png",
+        secureUrl: "/og-social-1200x630.png",
+        type: "image/png",
         width: 1200,
         height: 630,
         alt: "NWI Fun Ball - Region Razzles logo",
@@ -37,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-social-1200x630.png"],
+    images: ["/og-social-1200x630.jpg"],
   },
   facebook: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID
     ? { appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID }
