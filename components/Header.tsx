@@ -19,11 +19,11 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b border-gray-200/60 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
+      className="sticky top-0 z-50 w-full border-b-2 border-nwi-navy/20 bg-[#f5dce6]/95 backdrop-blur supports-[backdrop-filter]:bg-[#f5dce6]/85"
       role="banner"
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
         {/* Logo */}
@@ -38,18 +38,18 @@ export function Header() {
           >
             ✱
           </span>
-          <span className="text-xl font-bold tracking-tight sm:text-2xl">
+          <span className="text-lg font-black tracking-tight sm:text-xl">
             NWI FUN BALL
           </span>
         </Link>
 
         {/* Center nav links - desktop */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className="text-sm font-medium text-nwi-navy hover:text-nwi-orange transition-colors focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded px-2 py-1"
+                className="text-[1.05rem] font-extrabold text-nwi-navy hover:text-nwi-orange transition-colors focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded px-1 py-1"
               >
                 {label}
               </Link>
@@ -77,7 +77,7 @@ export function Header() {
         </button>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden items-center gap-3">
           <Button asChild variant="outline" size="default">
             <Link href="#contact" aria-label="Contact us">
               Contact

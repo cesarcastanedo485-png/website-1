@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer
-      className="border-t border-gray-200/60 bg-white/80 py-8"
+      className="border-t-2 border-nwi-navy/20 bg-[#f5dce6] py-8"
       role="contentinfo"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

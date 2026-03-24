@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] overflow-visible"
+      className="relative min-h-[440px] sm:min-h-[520px] lg:min-h-[600px] overflow-visible border-y-2 border-nwi-navy/20 bg-[#88b6e6]"
       aria-label="Hero section"
     >
       {/* Stadium background with overlay */}
@@ -53,8 +53,8 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 flex flex-col items-center text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-nwi-orange uppercase tracking-tighter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] [text-shadow:_2px_2px_0_#1a1b2e,_-1px_-1px_0_#1a1b2e] max-w-2xl">
+      <div className="relative mx-auto max-w-7xl px-4 pt-8 pb-16 sm:px-6 lg:px-8 lg:pt-10 lg:pb-24 flex flex-col items-start text-left">
+        <h1 className="text-6xl sm:text-7xl lg:text-[7.2rem] xl:text-[8rem] font-black text-nwi-orange uppercase tracking-tighter drop-shadow-[0_6px_0_rgba(26,27,46,0.45)] [text-shadow:_2px_2px_0_#1a1b2e,_-2px_-2px_0_#1a1b2e,_2px_-2px_0_#1a1b2e,_-2px_2px_0_#1a1b2e] max-w-[900px] leading-[0.9]">
           NWI FUN BALL
         </h1>
       </div>
