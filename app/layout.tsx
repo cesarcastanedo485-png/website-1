@@ -4,6 +4,12 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const metadataBase = getMetadataBase();
+const ogJpgUrl = metadataBase
+  ? new URL("/og-social-1200x630.jpg", metadataBase).toString()
+  : "/og-social-1200x630.jpg";
+const ogPngUrl = metadataBase
+  ? new URL("/og-social-1200x630.png", metadataBase).toString()
+  : "/og-social-1200x630.png";
 
 function getMetadataBase(): URL | undefined {
   const url = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -28,16 +34,16 @@ export const metadata: Metadata = {
     url: metadataBase ? new URL("/", metadataBase).toString() : undefined,
     images: [
       {
-        url: "/og-social-1200x630.jpg",
-        secureUrl: "/og-social-1200x630.jpg",
+        url: ogJpgUrl,
+        secureUrl: ogJpgUrl,
         type: "image/jpeg",
         width: 1200,
         height: 630,
         alt: "NWI Fun Ball - Region Razzles logo",
       },
       {
-        url: "/og-social-1200x630.png",
-        secureUrl: "/og-social-1200x630.png",
+        url: ogPngUrl,
+        secureUrl: ogPngUrl,
         type: "image/png",
         width: 1200,
         height: 630,
@@ -47,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-social-1200x630.jpg"],
+    images: [ogJpgUrl],
   },
   facebook: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID
     ? { appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID }
