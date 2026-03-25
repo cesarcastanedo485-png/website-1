@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase,
   title: "NWI Fun Ball | Sportainment in Whiting, Indiana",
   description:
-    "7 innings of non-stop fun! Baseball, softball, singing, dodgeball, dancing, soccer and FREE popcorn. Thursday nights at Oil City Stadium—June, July, August.",
+    "7 innings of non-stop fun! Baseball, softball, singing, dodgeball, dancing, soccer and FREE Razzles. Thursday nights at Oil City Stadium—June, July, August.",
   openGraph: {
     title: "NWI Fun Ball | Where Everyone Wins",
     description: "Sportainment at Oil City Stadium in Whiting, Indiana.",

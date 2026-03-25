@@ -5,6 +5,8 @@ import { IntroSection } from "@/components/IntroSection";
 import { TicketGrid } from "@/components/TicketGrid";
 import { ScheduleCalendar } from "@/components/ScheduleCalendar";
 import { Footer } from "@/components/Footer";
+import { Gallery } from "@/components/Gallery";
+import { SponsorsSection } from "@/components/SponsorsSection";
 
 export default function HomePage() {
   return (
@@ -15,16 +17,8 @@ export default function HomePage() {
         <IntroSection />
         <TicketGrid />
         <ScheduleCalendar />
-        <section id="gallery" className="py-10" aria-labelledby="gallery-heading">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 id="gallery-heading" className="text-3xl font-black text-nwi-navy text-center">
-              Gallery
-            </h2>
-            <p className="mt-4 text-center text-nwi-navy/80">
-              Photos and highlights coming soon.
-            </p>
-          </div>
-        </section>
+        <Gallery />
+        <SponsorsSection />
         <section id="contact" className="py-10 bg-nwi-pink" aria-labelledby="contact-heading">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 id="contact-heading" className="text-3xl font-black text-nwi-navy text-center">

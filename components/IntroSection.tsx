@@ -30,7 +30,7 @@ export function IntroSection() {
             <p className="text-base sm:text-lg text-nwi-navy/90 leading-relaxed">
               7 &quot;Innings&quot; of non-stop fun! Girls and guys compete, perform, and
               include you in the antics. Baseball/Softball, Singing, Dodgeball,
-              Dancing, Soccer and <strong>FREE popcorn!</strong>
+              Dancing, Soccer and <strong>FREE Razzles!</strong>
             </p>
             <p className="text-base sm:text-lg text-nwi-navy font-medium">
               Thursday nights at Oil City Stadium in Whiting, Indiana right on

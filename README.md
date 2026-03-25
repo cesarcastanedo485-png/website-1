@@ -2,12 +2,17 @@
 
 A production-ready single-page website for NWI Fun Ball, a sportainment event at Oil City Stadium in Whiting, Indiana.
 
+**Handing the site to the owner or a non-developer?**
+
+- **In Cursor / VS Code:** Open **`OWNER-HANDBOOK.md`** from the **file explorer** (left sidebar). Clicking the filename in Markdown preview sometimes tries to open a broken “website” link—use the tree view instead.
+- **In a browser** (dev or production): open **`/handbook`** — e.g. [http://localhost:3001/handbook](http://localhost:3001/handbook) while `npm run dev` is running, or `https://your-site.vercel.app/handbook` when deployed.
+
 ## Tech Stack
 
 - **Next.js 15** (App Router)
-- **TypeScript**
+- **React 19** / **TypeScript**
 - **Tailwind CSS**
-- **Framer Motion** (subtle animations)
+- **Framer Motion** (animations where used)
 - **Vercel-ready** deployment
 
 ## Getting Started
@@ -17,40 +22,48 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3001](http://localhost:3001).
 
 ## Project Structure
 
 ```
 ├── app/
-│   ├── layout.tsx      # Root layout, metadata, fonts
-│   ├── page.tsx        # Homepage (mockup preview + live sections)
-│   └── globals.css     # Tailwind + custom CSS variables
+│   ├── layout.tsx       # Root layout, metadata, fonts
+│   ├── page.tsx         # Homepage sections
+│   ├── globals.css      # Tailwind + custom CSS
+│   ├── api/             # Server routes (checkout, webhooks)
+│   └── ...
 ├── components/
-│   ├── Header.tsx      # Sticky nav with logo, links, CTA
-│   ├── Hero.tsx        # Stadium hero with title, mascot placeholder
-│   ├── IntroSection.tsx # Two-column: copy + Buy Tickets CTA
-│   ├── TicketGrid.tsx  # Three ticket cards (General, VIP, Press)
-│   ├── Footer.tsx      # Tagline
-│   └── ui/
-│       ├── button.tsx  # Accessible button component
-│       └── card.tsx    # Card component
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── ScrollingTicker.tsx
+│   ├── IntroSection.tsx
+│   ├── TicketGrid.tsx   # Press + contact cards
+│   ├── ScheduleCalendar.tsx
+│   ├── Footer.tsx
+│   └── ui/              # button, card, etc.
 ├── lib/
-│   └── utils.ts        # cn() for class merging
-└── public/
-    └── mockups/        # Client reference mockup
+│   ├── schedule.ts      # Game dates + schedule summary helper
+│   ├── tickets.ts       # (used by checkout)
+│   ├── db.ts            # Neon
+│   └── ...
+├── public/              # Images, logos, OG assets
+└── .env.example         # Environment variable names
 ```
 
-## Client Edits
+## Client / content edits
 
-- **Mockup preview**: Remove the `<aside>` block in `app/page.tsx` before production deploy.
-- **Mascot**: Add `/public/mascot.png` and update `Hero.tsx` to use it instead of the emoji placeholder.
-- **Stadium image**: The hero uses an Unsplash placeholder. Replace with your Oil City Stadium photo via `public/hero-stadium.jpg` and update the Hero `Image` src.
-- **Contact info**: Update phone number and email in `TicketGrid.tsx` and `app/page.tsx` with real contact details.
+For step-by-step owner instructions (domains, Vercel, GitHub), use **[OWNER-HANDBOOK.md](./OWNER-HANDBOOK.md)**. Quick pointers:
+
+- **Schedule:** `lib/schedule.ts` (`GAME_DATES`, `SEASON_YEAR`)
+- **Tickets & contact:** `components/TicketGrid.tsx`
+- **Hero / intro:** `components/Hero.tsx`, `components/IntroSection.tsx`
+- **Contact block on page:** `app/page.tsx`
+- **Assets:** `public/`
 
 ## Deployment
 
-This app is **Next.js with API routes, a database, Stripe, and email** — it needs a host that runs Node.js serverless functions, not plain static file hosting.
+This app is **Next.js with API routes, optional database, Stripe, and email** — it needs a host that runs Node.js serverless functions, not plain static file hosting.
 
 | Service | Role |
 |--------|------|
@@ -63,8 +76,8 @@ This app is **Next.js with API routes, a database, Stripe, and email** — it ne
 1. Sign up for **GitHub** and create a new repository (no template).
 2. Push this project: `git remote add origin …` then `git push -u origin main` (or `master`).
 3. Sign up for **Vercel** → **Add New Project** → **Import** your GitHub repo → leave defaults (Framework: Next.js).
-4. In Vercel → **Settings → Environment Variables**, add every variable from `.env.example` (use production keys when you go live). Set `NEXT_PUBLIC_SITE_URL` to your Vercel URL first (e.g. `https://your-project.vercel.app`), then add your **custom domain** later if needed.
-5. In **Stripe Dashboard** → **Developers → Webhooks**, add endpoint: `https://<your-site>/api/webhooks/stripe` and paste the signing secret into `STRIPE_WEBHOOK_SECRET` in Vercel.
+4. In Vercel → **Settings → Environment Variables**, add every variable from `.env.example` that you need (use production keys when you go live). Set `NEXT_PUBLIC_SITE_URL` and `SITE_URL` to your Vercel URL first (e.g. `https://your-project.vercel.app`), including **`https://`**, then add your **custom domain** later if needed.
+5. If you use Stripe: **Stripe Dashboard** → **Developers → Webhooks** → endpoint `https://<your-site>/api/webhooks/stripe` and paste the signing secret into `STRIPE_WEBHOOK_SECRET` in Vercel.
 
 Local production check (optional):
 

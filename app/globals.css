@@ -20,7 +20,7 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 25s linear infinite;
+  animation: scroll 8.33s linear infinite;
 }
 
 .panel-shell {

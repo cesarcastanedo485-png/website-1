@@ -3,19 +3,14 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { formatScheduleSummary } from "@/lib/schedule";
-
 const TICKET_CARDS = [
   {
     id: "press",
-    title: "Press Conference & Event Info",
+    title: "Press Conference",
     content: (
       <>
         <p className="text-nwi-navy/90 text-sm sm:text-base">
           <strong>Press conference details:</strong> March 29th, noon, Oil City Stadium.
-        </p>
-        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-medium">
-          Event dates: {formatScheduleSummary()}.
         </p>
         <p className="text-nwi-navy/90 text-sm sm:text-base mt-2">
           Tickets go on sale April 1, &apos;26.
