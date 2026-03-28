@@ -1,12 +1,6 @@
 "use client";
 
-const TICKER_ITEMS = [
-  "THANK YOU",
-  "TEAM CAST",
-  "STAFF",
-  "FANS",
-  "219-921-4584",
-];
+const TICKER_ITEMS = ["WE WANT YOU", "219-921-4584"];
 
 export function ScrollingTicker() {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -11,7 +12,6 @@ const NAV_LINKS = [
   { href: "#schedule", label: "Schedule" },
   { href: "#tickets", label: "Tickets" },
   { href: "#gallery", label: "Gallery" },
-  { href: "#sponsors", label: "Sponsors" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -20,37 +20,38 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b-2 border-nwi-navy/20 bg-[#f5dce6]/95 backdrop-blur supports-[backdrop-filter]:bg-[#f5dce6]/85"
+      className="sticky top-0 z-50 w-full border-b border-gray-200/60 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
       role="banner"
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        {/* Logo */}
         <Link
           href="#home"
-          className="flex items-center gap-2 text-nwi-navy focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded"
+          className="flex items-center gap-2 sm:gap-3 text-nwi-navy focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded"
           aria-label="NWI Fun Ball - Home"
         >
-          <span
-            className="text-2xl text-nwi-orange"
-            aria-hidden="true"
-          >
-            ✱
-          </span>
-          <span className="text-lg font-black tracking-tight sm:text-xl">
+          <Image
+            src="/hot-dog-mascot.png"
+            alt=""
+            width={112}
+            height={112}
+            className="h-11 w-11 sm:h-12 sm:w-12 object-contain shrink-0"
+            priority
+            unoptimized
+          />
+          <span className="text-xl font-bold tracking-tight sm:text-2xl">
             NWI FUN BALL
           </span>
         </Link>
 
-        {/* Center nav links - desktop */}
-        <ul className="hidden md:flex items-center gap-7">
+        <ul className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className="text-[1.05rem] font-extrabold text-nwi-navy hover:text-nwi-orange transition-colors focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded px-1 py-1"
+                className="text-sm font-medium text-nwi-navy hover:text-nwi-orange transition-colors focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded px-2 py-1"
               >
                 {label}
               </Link>
@@ -58,7 +59,6 @@ export function Header() {
           ))}
         </ul>
 
-        {/* Mobile menu button */}
         <button
           type="button"
           className="md:hidden p-2 -mr-2 text-nwi-navy hover:text-nwi-orange focus:outline-none focus:ring-2 focus:ring-nwi-orange rounded"
@@ -77,8 +77,7 @@ export function Header() {
           </svg>
         </button>
 
-        {/* CTA */}
-        <div className="hidden items-center gap-3">
+        <div className="hidden md:flex items-center gap-3">
           <Button asChild variant="outline" size="default">
             <Link href="#contact" aria-label="Contact us">
               Contact
@@ -87,7 +86,6 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile nav dropdown */}
       <div
         id="mobile-nav"
         className={`md:hidden overflow-hidden transition-all duration-200 ${mobileOpen ? "max-h-96" : "max-h-0"}`}

@@ -1,16 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 const TICKET_CARDS = [
   {
     id: "press",
-    title: "Press Conference",
+    title: "Press Conference & Event Info",
     content: (
       <>
         <p className="text-nwi-navy/90 text-sm sm:text-base">
           <strong>Press conference details:</strong> March 29th, noon, Oil City Stadium.
+        </p>
+        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-medium">
+          Event dates: June 6–11 & 29 • July 9 & 30 • August 13 & 29
         </p>
         <p className="text-nwi-navy/90 text-sm sm:text-base mt-2">
           Tickets go on sale April 1, &apos;26.
@@ -32,8 +36,8 @@ const TICKET_CARDS = [
     ),
   },
   {
-    id: "contact",
-    title: "Contact Box",
+    id: "general",
+    title: "General Admission",
     content: (
       <>
         <p className="text-nwi-navy/90 text-sm sm:text-base">
@@ -62,12 +66,22 @@ const TICKET_CARDS = [
         </p>
       </>
     ),
-    action: {
-      href: "mailto:visionquest2@outlook.com",
-      label: "Contact Now",
-      ariaLabel: "Email Becky Mateja",
-    },
-    layout: "landscape" as const,
+  },
+  {
+    id: "vip",
+    title: "VIP Family Pack",
+    content: (
+      <>
+        <p className="text-nwi-navy/90 text-sm sm:text-base">
+          Premium seating for the whole family. Enjoy exclusive access, reserved
+          seats, and special perks throughout the season. Perfect for groups
+          looking to make the most of their NWI Fun Ball experience.
+        </p>
+        <p className="text-nwi-navy/80 text-sm mt-2">
+          Contact us for pricing and availability.
+        </p>
+      </>
+    ),
   },
 ];
 
@@ -75,55 +89,38 @@ export function TicketGrid() {
   return (
     <section
       id="tickets"
-      className="py-10 sm:py-12 lg:py-14 bg-nwi-pink"
+      className="py-16 sm:py-20 lg:py-24 bg-nwi-pink"
       aria-labelledby="tickets-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2
           id="tickets-heading"
-          className="text-3xl sm:text-4xl font-black text-nwi-navy text-center mb-8"
+          className="text-2xl sm:text-3xl font-bold text-nwi-navy text-center mb-12"
         >
           Dedicated Tickets
         </h2>
 
-        <div className="grid gap-6">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {TICKET_CARDS.map((card) => (
             <Card
               key={card.id}
-              className={`flex flex-col border-2 border-nwi-navy/20 bg-[#d6e4fa] w-full`}
+              className={`flex flex-col ${card.id === "press" ? "bg-blue-50/80 border-blue-200 sm:col-span-2 lg:col-span-3" : ""}`}
             >
-              {"layout" in card && card.layout === "landscape" ? (
-                <>
-                  <CardHeader className="pb-2 sm:pb-4">
-                    <CardTitle className="text-2xl font-black">{card.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch lg:gap-8">
-                      <div className="flex-1 flex flex-col gap-3 text-nwi-navy/90 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-2 lg:gap-x-10">
-                        {card.content}
-                      </div>
-                      {"action" in card && (
-                        <div className="flex shrink-0 items-center justify-center lg:justify-end lg:border-l-2 lg:border-nwi-navy/15 lg:pl-8">
-                          <Button asChild className="w-full min-w-[200px] lg:w-auto lg:min-w-[220px]" size="lg">
-                            <Link
-                              href={card.action.href}
-                              aria-label={card.action.ariaLabel}
-                            >
-                              {card.action.label}
-                            </Link>
-                          </Button>
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </>
-              ) : (
-                <>
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-black">{card.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1">{card.content}</CardContent>
-                </>
+              <CardHeader>
+                <CardTitle>{card.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1">{card.content}</CardContent>
+              {(card.id === "general" || card.id === "vip") && (
+                <CardFooter>
+                  <Button asChild className="w-full" size="lg">
+                    <Link
+                      href={`/checkout?product=${card.id}`}
+                      aria-label={`Buy ${card.title} tickets`}
+                    >
+                      Buy Tickets
+                    </Link>
+                  </Button>
+                </CardFooter>
               )}
             </Card>
           ))}

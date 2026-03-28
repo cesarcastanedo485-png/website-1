@@ -6,10 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: linear-gradient(180deg, #d7c1c8 0%, #f3e8ee 28%, #f3e8ee 100%);
-}
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -20,19 +16,7 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll 8.33s linear infinite;
-}
-
-.panel-shell {
-  border: 2px solid rgba(26, 27, 46, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(26, 27, 46, 0.16);
-}
-
-.vintage-card {
-  border: 2px solid rgba(26, 27, 46, 0.18);
-  border-radius: 18px;
-  box-shadow: 0 8px 0 rgba(26, 27, 46, 0.12);
+  animation: scroll 9s linear infinite;
 }
 
 @layer base {
