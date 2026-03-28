@@ -20,7 +20,7 @@ export function Footer() {
           alt="Region Razzles"
           width={300}
           height={150}
-          className="pointer-events-auto h-20 w-auto max-w-[min(72vw,260px)] object-contain object-right-bottom sm:h-24 lg:h-28"
+          className="pointer-events-auto h-20 w-auto max-w-[min(72vw,260px)] object-contain object-right object-bottom sm:h-24 lg:h-28"
           unoptimized
         />
       </div>
