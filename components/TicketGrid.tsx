@@ -10,27 +10,41 @@ const TICKET_CARDS = [
     title: "Press Conference & Event Info",
     content: (
       <>
-        <p className="text-nwi-navy/90 text-sm sm:text-base">
-          <strong>Press conference details:</strong> March 29th, noon, Oil City Stadium.
+        <p className="text-nwi-navy text-base sm:text-lg font-black leading-snug">
+          Season event dates (Thursday nights):{" "}
+          <span className="text-nwi-orange">
+            June 6–11 &amp; 29 • July 9 &amp; 30 • August 13 &amp; 29
+          </span>
         </p>
-        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-medium">
-          Event dates: June 6–11 & 29 • July 9 & 30 • August 13 & 29
+        <p className="text-nwi-navy/90 text-sm sm:text-base mt-3">
+          <strong>Press conference:</strong> March 29, noon — Oil City Stadium, Whiting,
+          Indiana. Full details for media and partners.
         </p>
-        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2">
-          Tickets go on sale April 1, &apos;26.
+        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-semibold">
+          Tickets on sale April 1, &apos;26.
         </p>
         <div
-          className="mt-4 rounded-lg bg-nwi-navy p-4 grid grid-cols-5 gap-2"
-          role="img"
-          aria-label="Decorative floral icons"
+          className="mt-4 grid grid-cols-5 gap-2 rounded-lg bg-nwi-navy p-4"
+          role="presentation"
         >
-          {["🌻", "🌺", "🌸", "🌼", "🌷", "⭐", "✨", "🌟", "💫", "🎉"].map(
-            (emoji, i) => (
-              <span key={i} className="text-2xl text-center" aria-hidden="true">
-                {emoji}
-              </span>
-            )
-          )}
+          {[
+            "bg-amber-400",
+            "bg-rose-400",
+            "bg-pink-300",
+            "bg-yellow-300",
+            "bg-fuchsia-400",
+            "bg-orange-300",
+            "bg-sky-400",
+            "bg-lime-300",
+            "bg-violet-400",
+            "bg-nwi-orange",
+          ].map((c, i) => (
+            <span
+              key={i}
+              className={`mx-auto block h-7 w-7 rounded-full opacity-90 sm:h-8 sm:w-8 ${c}`}
+              aria-hidden="true"
+            />
+          ))}
         </div>
       </>
     ),
