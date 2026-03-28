@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { HOMETOWN_TICKETING_URL } from "@/lib/ticketing";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
+  { href: "#video", label: "Video" },
   { href: "#schedule", label: "Schedule" },
   { href: "#tickets", label: "Tickets" },
   { href: "#gallery", label: "Gallery" },
+  { href: "#sponsors", label: "Sponsors" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -20,39 +20,37 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b border-gray-200/60 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
+      className="sticky top-0 z-50 w-full border-b-2 border-nwi-navy/20 bg-[#f5dce6]/95 backdrop-blur supports-[backdrop-filter]:bg-[#f5dce6]/85"
       role="banner"
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
+        {/* Logo */}
         <Link
           href="#home"
-          className="flex items-center gap-2 sm:gap-3 text-nwi-navy focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded"
+          className="flex items-center gap-2 text-nwi-navy focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded"
           aria-label="NWI Fun Ball - Home"
         >
-          <Image
-            src="/hot-dog-mascot.png"
-            alt="NWI Fun Ball hot dog mascot"
-            width={112}
-            height={112}
-            className="h-11 w-11 sm:h-14 sm:w-14 object-contain shrink-0"
-            priority
-            unoptimized
-          />
-          <span className="text-xl font-bold tracking-tight sm:text-2xl">
+          <span
+            className="text-2xl text-nwi-orange"
+            aria-hidden="true"
+          >
+            ✱
+          </span>
+          <span className="text-lg font-black tracking-tight sm:text-xl">
             NWI FUN BALL
           </span>
         </Link>
 
         {/* Center nav links - desktop */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className="text-sm font-medium text-nwi-navy hover:text-nwi-orange transition-colors focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded px-2 py-1"
+                className="text-[1.05rem] font-extrabold text-nwi-navy hover:text-nwi-orange transition-colors focus:outline-none focus:ring-2 focus:ring-nwi-orange focus:ring-offset-2 rounded px-1 py-1"
               >
                 {label}
               </Link>
@@ -80,32 +78,7 @@ export function Header() {
         </button>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button asChild size="default">
-            <a
-              href={HOMETOWN_TICKETING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Buy tickets (opens in new tab)"
-              className="inline-flex items-center gap-2"
-            >
-              Buy Tickets
-              <svg
-                className="h-4 w-4 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          </Button>
+        <div className="hidden items-center gap-3">
           <Button asChild variant="outline" size="default">
             <Link href="#contact" aria-label="Contact us">
               Contact
@@ -133,32 +106,6 @@ export function Header() {
             </li>
           ))}
           <li className="pt-2 space-y-2">
-            <Button asChild className="w-full" size="default">
-              <a
-                href={HOMETOWN_TICKETING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Buy tickets (opens in new tab)"
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center justify-center gap-2"
-              >
-                Buy Tickets
-                <svg
-                  className="h-4 w-4 shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
-            </Button>
             <Button asChild variant="outline" className="w-full" size="default">
               <Link href="#contact" onClick={() => setMobileOpen(false)}>
                 Contact
