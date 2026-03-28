@@ -10,7 +10,7 @@ import { SponsorsSection } from "@/components/SponsorsSection";
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="mx-auto max-w-[1120px] my-6 panel-shell bg-nwi-pink overflow-hidden">
+    <main id="main-content" className="mx-auto max-w-[1120px] my-6 panel-shell bg-nwi-pink overflow-x-hidden overflow-y-visible">
         <Header />
         <Hero />
         <ScrollingTicker />
