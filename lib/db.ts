@@ -1,8 +1,15 @@
 import { neon } from "@neondatabase/serverless";
 
-const sql = neon(process.env.DATABASE_URL!);
+function getSql() {
+  const url = process.env.DATABASE_URL;
+  if (!url) {
+    throw new Error("DATABASE_URL is not configured");
+  }
+  return neon(url);
+}
 
 export async function initOrdersTable() {
+  const sql = getSql();
   await sql`
     CREATE TABLE IF NOT EXISTS orders (
       id SERIAL PRIMARY KEY,
@@ -25,6 +32,7 @@ export async function insertOrder(order: {
   totalCents: number;
   ticketId: string;
 }) {
+  const sql = getSql();
   await sql`
     INSERT INTO orders (stripe_session_id, customer_email, product_id, quantity, total_cents, ticket_id)
     VALUES (
@@ -39,10 +47,9 @@ export async function insertOrder(order: {
 }
 
 export async function getOrderByTicketId(ticketId: string) {
+  const sql = getSql();
   const rows = await sql`
     SELECT * FROM orders WHERE ticket_id = ${ticketId} LIMIT 1
   `;
   return rows[0] ?? null;
 }
-
-export { sql };

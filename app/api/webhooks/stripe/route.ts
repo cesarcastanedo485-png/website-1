@@ -4,8 +4,8 @@ import { nanoid } from "nanoid";
 import { getTicketProduct } from "@/lib/tickets";
 import { initOrdersTable, insertOrder } from "@/lib/db";
 import { sendTicketEmail } from "@/lib/email";
+import { getStripe } from "@/lib/stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
 export async function POST(request: NextRequest) {
@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
 
   let event: Stripe.Event;
   try {
+    const stripe = getStripe();
     const body = await request.text();
     const sig = request.headers.get("stripe-signature");
     if (!sig) {
