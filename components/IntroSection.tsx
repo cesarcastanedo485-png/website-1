@@ -37,7 +37,7 @@ export function IntroSection() {
           <div className="flex flex-col">
             <div className="rounded-xl bg-nwi-orange p-8 sm:p-10 text-center shadow-lg">
               <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-white uppercase tracking-tight mb-4">
-                Buy Tickets Now
+                2026 season
               </p>
               <p className="text-white/95 text-sm sm:text-base mb-6">
                 Tickets On Sale April 1, 2026
@@ -47,8 +47,8 @@ export function IntroSection() {
                 size="lg"
                 className="bg-white text-nwi-orange hover:bg-gray-100 hover:text-nwi-orange-dark w-full max-w-xs mx-auto"
               >
-                <Link href="#tickets" aria-label="Purchase tickets">
-                  Get Tickets
+                <Link href="/checkout" aria-label="Buy tickets now">
+                  Buy Tickets Now
                 </Link>
               </Button>
             </div>

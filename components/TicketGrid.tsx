@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const TICKET_CARDS = [
   {
@@ -124,18 +122,6 @@ export function TicketGrid() {
                 <CardTitle>{card.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-1">{card.content}</CardContent>
-              {(card.id === "general" || card.id === "vip") && (
-                <CardFooter>
-                  <Button asChild className="w-full" size="lg">
-                    <Link
-                      href={`/checkout?product=${card.id}`}
-                      aria-label={`Buy ${card.title} tickets`}
-                    >
-                      Buy Tickets
-                    </Link>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
           ))}
         </div>
