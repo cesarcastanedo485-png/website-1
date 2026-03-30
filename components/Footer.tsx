@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { ContactCallout } from "@/components/ContactCallout";
 
 export function Footer() {
   return (
     <footer
-      className="relative min-h-[130px] border-t border-gray-200/60 bg-white/80 py-8 pb-24 sm:pb-10"
+      className="relative min-h-[130px] bg-white/80 pb-24 pt-0 sm:pb-10"
       role="contentinfo"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ContactCallout />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         <p className="text-center text-nwi-navy font-medium sm:text-left sm:max-w-lg">
           <span className="mr-2 text-nwi-orange" aria-hidden="true">
             ✱

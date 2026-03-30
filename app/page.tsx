@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ScrollingTicker } from "@/components/ScrollingTicker";
-import { ContactCallout } from "@/components/ContactCallout";
 import { IntroSection } from "@/components/IntroSection";
 import { VideoPlaceholder } from "@/components/VideoPlaceholder";
 import { TicketGrid } from "@/components/TicketGrid";
@@ -13,7 +12,6 @@ export default function HomePage() {
       <Header />
       <Hero />
       <ScrollingTicker />
-      <ContactCallout />
       <IntroSection />
       <VideoPlaceholder />
       <TicketGrid />
