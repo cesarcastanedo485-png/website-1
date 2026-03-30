@@ -5,6 +5,7 @@ import { ContactCallout } from "@/components/ContactCallout";
 import { IntroSection } from "@/components/IntroSection";
 import { VideoPlaceholder } from "@/components/VideoPlaceholder";
 import { TicketGrid } from "@/components/TicketGrid";
+import { SponsorsSection } from "@/components/SponsorsSection";
 import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
@@ -30,6 +31,7 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+      <SponsorsSection />
       <section id="gallery" className="py-12" aria-labelledby="gallery-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 id="gallery-heading" className="text-2xl font-bold text-nwi-navy text-center">
