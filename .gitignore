@@ -16,6 +16,9 @@ yarn-error.log*
 .env*.local
 .vercel
 
+# typescript
+*.tsbuildinfo
+
 # IDE / OS
 .DS_Store
 *.pem
