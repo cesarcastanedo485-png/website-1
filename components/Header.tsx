@@ -37,7 +37,7 @@ export function Header() {
             alt=""
             width={112}
             height={112}
-            className="h-11 w-11 sm:h-12 sm:w-12 object-contain shrink-0"
+            className="h-11 w-11 sm:h-12 sm:w-12 scale-x-[-1] object-contain shrink-0"
             priority
             unoptimized
           />
