@@ -7,21 +7,12 @@ import { Button } from "@/components/ui/button";
 const TICKET_CARDS = [
   {
     id: "press",
-    title: "Press Conference & Event Info",
+    title: "Press Conference Info",
     content: (
       <>
-        <p className="text-nwi-navy text-base sm:text-lg font-black leading-snug">
-          Season event dates (Thursday nights):{" "}
-          <span className="text-nwi-orange">
-            June 6–11 &amp; 29 • July 9 &amp; 30 • August 13 &amp; 29
-          </span>
-        </p>
-        <p className="text-nwi-navy/90 text-sm sm:text-base mt-3">
-          <strong>Press conference:</strong> March 29, noon — Oil City Stadium, Whiting,
-          Indiana. Full details for media and partners.
-        </p>
-        <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-semibold">
-          Tickets on sale April 1, &apos;26.
+        <p className="text-nwi-navy/90 text-sm sm:text-base">
+          <strong>Press conference:</strong> Oil City Stadium, Whiting, Indiana. Full
+          details for media and partners — contact us for scheduling and credentials.
         </p>
         <div
           className="mt-4 grid grid-cols-5 gap-2 rounded-lg bg-nwi-navy p-4"

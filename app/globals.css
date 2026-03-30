@@ -16,7 +16,8 @@ html {
 }
 
 .animate-scroll {
-  animation: scroll 9s linear infinite;
+  /* ~3× faster than the 25s baseline on main */
+  animation: scroll 8.33s linear infinite;
 }
 
 @layer base {
