@@ -6,6 +6,11 @@ export const SEASON_YEAR = 2026;
  * Initial values match the site’s published schedule wording (June 6–11 window + 29, July, August).
  */
 export const GAME_DATES = [
+  "2026-06-06",
+  "2026-06-07",
+  "2026-06-08",
+  "2026-06-09",
+  "2026-06-10",
   "2026-06-11",
   "2026-06-29",
   "2026-07-09",
