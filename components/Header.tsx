@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "#schedule", label: "Schedule" },
   { href: "#tickets", label: "Tickets" },
   { href: "#gallery", label: "Gallery" },
+  { href: "#sponsors", label: "Sponsors" },
   { href: "#contact", label: "Contact" },
 ];
 
