@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
+import type Stripe from "stripe";
 import { nanoid } from "nanoid";
 import { getTicketProduct } from "@/lib/tickets";
 import { initOrdersTable, insertOrder } from "@/lib/db";
 import { sendTicketEmail } from "@/lib/email";
+import { getStripe } from "@/lib/stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
 export async function POST(request: NextRequest) {
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     if (!sig) {
       return NextResponse.json({ error: "Missing signature" }, { status: 400 });
     }
-    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+    event = getStripe().webhooks.constructEvent(body, sig, webhookSecret);
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Webhook error";
     console.error("Webhook signature verification failed:", msg);
