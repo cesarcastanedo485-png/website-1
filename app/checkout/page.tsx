@@ -1,17 +1,14 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { getTicketProduct, TICKET_PRODUCTS } from "@/lib/tickets";
+import { TICKET_PRODUCTS } from "@/lib/tickets";
+
+const DEFAULT_PRODUCT = TICKET_PRODUCTS[0]!;
 
 function CheckoutForm() {
-  const searchParams = useSearchParams();
-  const productParam = searchParams.get("product") || "general";
-  const initialProduct = getTicketProduct(productParam) ?? getTicketProduct("general")!;
-
-  const [product, setProduct] = useState(initialProduct);
+  const product = DEFAULT_PRODUCT;
   const [quantity, setQuantity] = useState(1);
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -62,31 +59,11 @@ function CheckoutForm() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              htmlFor="product"
-              className="block text-sm font-medium text-nwi-navy mb-2"
-            >
-              Ticket type
-            </label>
-            <select
-              id="product"
-              value={product.id}
-              onChange={(e) => {
-                const p = getTicketProduct(e.target.value);
-                if (p) {
-                  setProduct(p);
-                  setQuantity(1);
-                }
-              }}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2 text-nwi-navy focus:border-nwi-orange focus:ring-nwi-orange"
-            >
-              {TICKET_PRODUCTS.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.name} — ${(p.priceCents / 100).toFixed(2)} each
-                </option>
-              ))}
-            </select>
+          <div className="rounded-lg bg-nwi-navy/5 p-4">
+            <p className="text-sm font-medium text-nwi-navy mb-1">Ticket</p>
+            <p className="text-nwi-navy">
+              {product.name} — ${(product.priceCents / 100).toFixed(2)} each
+            </p>
           </div>
 
           <div>

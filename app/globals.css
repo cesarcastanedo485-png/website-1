@@ -8,15 +8,16 @@ html {
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-scroll {
-  animation: scroll 9s linear infinite;
+  animation: scroll 4.5s linear infinite;
+  backface-visibility: hidden;
 }
 
 @layer base {

@@ -44,7 +44,11 @@ export default async function VerifyPage({ params }: Props) {
   }
 
   const productName =
-    order.product_id === "general" ? "General Admission" : "VIP Family Pack";
+    order.product_id === "general"
+      ? "NWI Fun Ball Ticket"
+      : order.product_id === "vip"
+        ? "VIP Family Pack (legacy)"
+        : order.product_id;
 
   return (
     <main className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
