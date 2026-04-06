@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { HometownTicketEmbed } from "@/components/HometownTicketEmbed";
 
 export function TicketGrid() {
   return (
@@ -42,13 +42,22 @@ export function TicketGrid() {
               Tickets on sale April 1, &apos;26.
             </p>
           </CardContent>
-          <CardFooter>
-            <Button asChild className="w-full" size="lg">
-              <Link href="/checkout" aria-label="Buy tickets">
-                Buy Tickets
-              </Link>
-            </Button>
-          </CardFooter>
+        </Card>
+
+        <Card className="mx-auto max-w-3xl mt-8 flex flex-col border-2 border-nwi-navy/20 bg-blue-50/80 shadow-[0_8px_0_rgba(26,27,46,0.08)] rounded-2xl overflow-hidden">
+          <CardHeader className="pb-2 sm:pb-4">
+            <CardTitle className="text-xl sm:text-2xl font-black text-nwi-navy">
+              Buy tickets
+            </CardTitle>
+            <p className="text-sm text-nwi-navy/80 font-medium pt-1">
+              Official ticketing through Hometown Ticketing — select your event below.
+            </p>
+          </CardHeader>
+          <CardContent className="pt-0 pb-6 sm:pb-8">
+            <div className="rounded-xl border-2 border-nwi-navy/15 bg-white p-3 sm:p-4">
+              <HometownTicketEmbed />
+            </div>
+          </CardContent>
         </Card>
       </div>
     </section>
