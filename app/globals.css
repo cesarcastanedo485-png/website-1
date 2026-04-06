@@ -16,8 +16,14 @@ html {
 }
 
 .animate-scroll {
-  animation: scroll 4.5s linear infinite;
+  animation: scroll 18s linear infinite;
   backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll {
+    animation: none;
+  }
 }
 
 @layer base {
