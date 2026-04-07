@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ScrollingTicker } from "@/components/ScrollingTicker";
-import { ContactBoxSection } from "@/components/ContactBoxSection";
 import { SponsorsSection } from "@/components/SponsorsSection";
 import { IntroSection } from "@/components/IntroSection";
 import { VideoPlaceholder } from "@/components/VideoPlaceholder";
@@ -16,7 +15,6 @@ export default function HomePage() {
       <Header />
       <Hero />
       <ScrollingTicker />
-      <ContactBoxSection />
       <SponsorsSection />
       <IntroSection />
       <VideoPlaceholder />

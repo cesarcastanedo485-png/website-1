@@ -4,14 +4,31 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-export function ContactBoxSection() {
+type ContactBoxSectionProps = {
+  /** Use in footer: no pink band, top border matches footer layout */
+  variant?: "page" | "footer";
+};
+
+export function ContactBoxSection({ variant = "page" }: ContactBoxSectionProps) {
+  const isFooter = variant === "footer";
+
   return (
     <section
       id="contact"
-      className="py-8 sm:py-10 bg-nwi-pink"
+      className={
+        isFooter
+          ? "mt-10 border-t border-nwi-navy/10 pt-10"
+          : "py-8 sm:py-10 bg-nwi-pink"
+      }
       aria-labelledby="contact-box-heading"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        className={
+          isFooter
+            ? "mx-auto max-w-4xl px-0 sm:px-0"
+            : "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+        }
+      >
         <Card className="flex flex-col border-2 border-nwi-navy/20 bg-[#d6e4fa] w-full">
           <CardHeader className="pb-2 sm:pb-4">
             <CardTitle
