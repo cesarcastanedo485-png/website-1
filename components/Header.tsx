@@ -35,8 +35,8 @@ export function Header() {
           aria-label="NWI Fun Ball - Home"
         >
           <Image
-            src="/hot-dog-mascot.png"
-            alt=""
+            src="/region-razzles-logo-transparent.png"
+            alt="Region Razzles"
             width={112}
             height={112}
             className="h-11 w-11 sm:h-12 sm:w-12 object-contain shrink-0"
