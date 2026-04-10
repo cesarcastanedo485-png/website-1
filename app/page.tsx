@@ -10,6 +10,7 @@ import { SponsorsSection } from "@/components/SponsorsSection";
 import { Gallery } from "@/components/Gallery";
 import { Footer } from "@/components/Footer";
 import { StayConnectedDialog } from "@/components/StayConnectedDialog";
+import { STAY_CONNECTED_POPUP_ENABLED } from "@/lib/stay-connected";
 
 export default function HomePage() {
   return (
@@ -25,7 +26,7 @@ export default function HomePage() {
       <SponsorsSection />
       <Gallery />
       <Footer />
-      <StayConnectedDialog />
+      {STAY_CONNECTED_POPUP_ENABLED ? <StayConnectedDialog /> : null}
     </main>
   );
 }

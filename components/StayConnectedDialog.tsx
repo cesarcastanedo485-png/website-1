@@ -13,6 +13,8 @@ const OPEN_DELAY_MS = 4500;
 /**
  * Mailto-based “stay connected” modal. Entire behavior is isolated here + `lib/stay-connected.ts`
  * so swapping to an API later is a localized change.
+ *
+ * Gated by `STAY_CONNECTED_POPUP_ENABLED` in `lib/stay-connected.ts` (rendered from `app/page.tsx`).
  */
 export function StayConnectedDialog() {
   const dialogId = useId();

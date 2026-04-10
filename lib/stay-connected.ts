@@ -10,6 +10,12 @@
  * ---------------------------------------------------------------------------
  */
 
+/**
+ * Delayed “Stay connected” email popup on the homepage.
+ * Set to `true` to turn it back on (no other code changes needed).
+ */
+export const STAY_CONNECTED_POPUP_ENABLED = false;
+
 export const STAY_CONNECTED_STRATEGY = "mailto" as const;
 
 export function getStayConnectedRecipient(): string {
