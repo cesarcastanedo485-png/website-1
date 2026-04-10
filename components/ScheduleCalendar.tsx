@@ -2,6 +2,7 @@ import {
   SEASON_YEAR,
   SCHEDULE_MONTHS,
   SCHEDULE_VENUE_LINE,
+  PRESS_EVENT_COPY,
   formatScheduleSummary,
   getMonthCalendarGrid,
   WEEKDAY_LABELS_SHORT,
@@ -56,19 +57,27 @@ function MonthTable({ year, month }: { year: number; month: number }) {
                   );
                 }
 
-                const label = cell.isGameDay
-                  ? `Game night, ${monthName} ${cell.dayLabel}, ${year}`
-                  : `${monthName} ${cell.dayLabel}, ${year}, no game`;
+                let label: string;
+                if (cell.isGameDay) {
+                  label = `Game night, ${monthName} ${cell.dayLabel}, ${year}`;
+                } else if (cell.isPressDay) {
+                  label = `Press release and party, ${monthName} ${cell.dayLabel}, ${year}`;
+                } else {
+                  label = `${monthName} ${cell.dayLabel}, ${year}, no game`;
+                }
+
+                const cellClass =
+                  cell.isGameDay
+                    ? "bg-nwi-orange text-white"
+                    : cell.isPressDay
+                      ? "bg-nwi-navy text-white"
+                      : "bg-white/80 text-nwi-navy/85";
 
                 return (
                   <td
                     key={ci}
                     aria-label={label}
-                    className={`h-10 sm:h-12 border border-nwi-navy/10 p-1 align-middle font-semibold ${
-                      cell.isGameDay
-                        ? "bg-nwi-orange text-white"
-                        : "bg-white/80 text-nwi-navy/85"
-                    }`}
+                    className={`h-10 sm:h-12 border border-nwi-navy/10 p-1 align-middle font-semibold ${cellClass}`}
                   >
                     {cell.dayLabel}
                   </td>
@@ -104,18 +113,30 @@ export function ScheduleCalendar() {
         <p className="mt-2 text-center text-nwi-navy/80 max-w-2xl mx-auto">
           {SCHEDULE_VENUE_LINE}
         </p>
+        <p className="mt-4 text-center text-sm sm:text-base font-semibold text-nwi-navy max-w-3xl mx-auto leading-relaxed">
+          {PRESS_EVENT_COPY}
+        </p>
 
         <p className="mt-6 text-center text-sm font-semibold text-nwi-navy/90">
-          <span className="inline-flex items-center gap-2 flex-wrap justify-center">
-            <span
-              className="inline-block h-4 w-4 rounded-sm bg-nwi-orange ring-1 ring-nwi-navy/20"
-              aria-hidden="true"
-            />
-            Orange = game night
+          <span className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <span className="inline-flex items-center gap-2">
+              <span
+                className="inline-block h-4 w-4 rounded-sm bg-nwi-orange ring-1 ring-nwi-navy/20"
+                aria-hidden="true"
+              />
+              Orange = game night
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span
+                className="inline-block h-4 w-4 rounded-sm bg-nwi-navy ring-1 ring-nwi-navy/20"
+                aria-hidden="true"
+              />
+              Navy = press / special event
+            </span>
           </span>
         </p>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-3">
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
           {SCHEDULE_MONTHS.map((m) => (
             <MonthTable key={m} year={SEASON_YEAR} month={m} />
           ))}

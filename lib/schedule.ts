@@ -18,8 +18,17 @@ export type GameDateIso = (typeof GAME_DATES)[number];
 
 const gameDaySet = new Set<string>(GAME_DATES);
 
+/** Public press release / special calendar highlights (not game nights). */
+export const PRESS_DATES = ["2026-05-14"] as const;
+
+const pressDaySet = new Set<string>(PRESS_DATES);
+
 export function isGameDay(isoDate: string): boolean {
   return gameDaySet.has(isoDate);
+}
+
+export function isPressDay(isoDate: string): boolean {
+  return pressDaySet.has(isoDate);
 }
 
 /** Parse YYYY-MM-DD as local midnight (avoids UTC shift). */
@@ -35,11 +44,15 @@ function padISODate(d: Date): string {
   return `${y}-${m}-${day}`;
 }
 
-/** Months rendered on the schedule calendar (1 = January). */
-export const SCHEDULE_MONTHS = [6, 7, 8] as const;
+/** Months rendered on the schedule calendar (1 = January). Includes May for press/special dates. */
+export const SCHEDULE_MONTHS = [5, 6, 7, 8] as const;
 
 export const SCHEDULE_VENUE_LINE =
   "Thursday nights at Oil City Stadium, Whiting, Indiana";
+
+/** Shown under the schedule heading for the May press event. */
+export const PRESS_EVENT_COPY =
+  "May 14, 2026 — Public press release and party at South Shore Welcome Center, 7770 Corinne Drive, Hammond, Indiana.";
 
 /**
  * Compress sorted day-of-month numbers into "a & b" or "a–c" ranges for one month.
@@ -94,6 +107,7 @@ export type CalendarCell = {
   dayLabel: string;
   isCurrentMonth: boolean;
   isGameDay: boolean;
+  isPressDay: boolean;
 };
 
 /** First weekday index (0=Sunday … 6=Saturday) for the 1st of the month. */
@@ -109,17 +123,20 @@ function getMonthGridCells(year: number, monthIndex0: number): CalendarCell[] {
       dayLabel: "",
       isCurrentMonth: false,
       isGameDay: false,
+      isPressDay: false,
     });
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
     const d = new Date(year, monthIndex0, day);
     const iso = padISODate(d);
+    const game = isGameDay(iso);
     cells.push({
       iso,
       dayLabel: String(day),
       isCurrentMonth: true,
-      isGameDay: isGameDay(iso),
+      isGameDay: game,
+      isPressDay: !game && isPressDay(iso),
     });
   }
 
@@ -129,6 +146,7 @@ function getMonthGridCells(year: number, monthIndex0: number): CalendarCell[] {
       dayLabel: "",
       isCurrentMonth: false,
       isGameDay: false,
+      isPressDay: false,
     });
   }
 

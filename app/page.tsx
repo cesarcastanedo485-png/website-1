@@ -1,13 +1,15 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ScrollingTicker } from "@/components/ScrollingTicker";
-import { SponsorsSection } from "@/components/SponsorsSection";
 import { IntroSection } from "@/components/IntroSection";
 import { VideoPlaceholder } from "@/components/VideoPlaceholder";
+import { TeamAndMediaSection } from "@/components/TeamAndMediaSection";
 import { TicketGrid } from "@/components/TicketGrid";
 import { ScheduleCalendar } from "@/components/ScheduleCalendar";
+import { SponsorsSection } from "@/components/SponsorsSection";
 import { Gallery } from "@/components/Gallery";
 import { Footer } from "@/components/Footer";
+import { StayConnectedDialog } from "@/components/StayConnectedDialog";
 
 export default function HomePage() {
   return (
@@ -15,13 +17,15 @@ export default function HomePage() {
       <Header />
       <Hero />
       <ScrollingTicker />
-      <SponsorsSection />
       <IntroSection />
       <VideoPlaceholder />
+      <TeamAndMediaSection />
       <TicketGrid />
       <ScheduleCalendar />
+      <SponsorsSection />
       <Gallery />
       <Footer />
+      <StayConnectedDialog />
     </main>
   );
 }

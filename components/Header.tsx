@@ -9,10 +9,11 @@ const NAV_LINKS = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#video", label: "Video" },
-  { href: "#schedule", label: "Schedule" },
+  { href: "#team", label: "Team" },
   { href: "#tickets", label: "Tickets" },
-  { href: "#gallery", label: "Gallery" },
+  { href: "#schedule", label: "Schedule" },
   { href: "#sponsors", label: "Sponsors" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#contact", label: "Contact" },
 ];
 

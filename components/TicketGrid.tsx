@@ -35,8 +35,9 @@ export function TicketGrid() {
               below.
             </p>
             <p className="text-nwi-navy/90 text-sm sm:text-base mt-3">
-              <strong>Press conference:</strong> March 29, noon — Oil City Stadium, Whiting,
-              Indiana. Full details for media and partners.
+              <strong>Public press release and party:</strong> May 14 — South Shore Welcome
+              Center, <strong>7770 Corinne Drive</strong>, Hammond, Indiana. Full details for
+              media, partners, and the community.
             </p>
             <p className="text-nwi-navy/90 text-sm sm:text-base mt-2 font-semibold">
               Tickets on sale April 1, &apos;26.
